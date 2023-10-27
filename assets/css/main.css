@@ -1,5 +1,37 @@
 body {
     background-color: rgb(169, 255, 235);
     color: rgb(39, 39, 39);
+    
+}
+header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+img.header{
+    background-color: red;
 }
 
+.searchcontainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.searchbarstyle{
+    min-width: 100vh;
+    height: 40px;
+    border: none;
+    background-color: rgb(236, 238, 236);
+    border-radius: 40px;
+    text-align: center;
+}
+
+.searchbuttonstyle{
+    background-color: rgb(219, 220, 219);
+    border: none;
+    aspect-ratio: 1;
+    border-radius: 100px;
+    margin-left: -35px;
+}
