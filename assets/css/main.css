@@ -1,21 +1,63 @@
 body {
-    background-color: rgb(169, 255, 235);
+    margin: 0;
+    background-color: rgb(241, 241, 241);
     color: rgb(39, 39, 39);
+    font-family: 'Comfortaa', sans-serif;
+    font-family: 'Inclusive Sans', sans-serif;
     
 }
+
+
+
+.nav-pokemon {
+    display: flex;
+    justify-content: center;
+    background-color: black;
+   
+}
+
+nav ul {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    padding-inline-start: 0;
+    gap: 1.6rem;
+}
+
+
+nav ul li a{
+    color:antiquewhite;
+    text-decoration: none;
+    font-size: 0.8em
+}
+
+nav ul li a:hover {
+    color: rgb(0, 255, 110);
+    transform: scale();
+}
+
+
 header{
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: #ff3434;
+    padding: 2.4rem
 }
-img.header{
-    background-color: red;
+
+section {
+    background-color:rgb(255, 248, 238)e;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
 }
 
 .searchcontainer{
     display: flex;
     align-items: center;
     justify-content: center;
+    padding-top: 4rem;
     
 }
 
@@ -26,12 +68,17 @@ img.header{
     background-color: rgb(236, 238, 236);
     border-radius: 40px;
     text-align: center;
+    box-shadow: 10px 10px 7px rgb(210, 210, 210);
 }
 
 .searchbuttonstyle{
-    background-color: rgb(219, 220, 219);
+    background-color: rgb(200, 200, 200);
     border: none;
     aspect-ratio: 1;
     border-radius: 100px;
     margin-left: -35px;
+}
+
+.searchbuttonstyle:hover {
+    background-color: rgb(184, 137, 255);
 }
