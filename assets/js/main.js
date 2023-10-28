@@ -1,16 +1,43 @@
 'use strict';
 
-const URL = "https://rickandmortyapi.com/api/character";
+    async function getPokemonData() {
+      const pokemonName = document.getElementById("pokemonName").value.toLowerCase();
 
-const ulElementCharacters = document.querySelector("ul")
+      try {
+        // Fetch data from the Pokémon API
+        const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`);
+        const data = response.data;
 
-// Muestra en la consola lo que ha buscado el usuario en el formulario, al hacer click en la lupa de buscar.
-function search() {
-    let searchResult = document.getElementById("searchpokemon").value;
-    console.log(searchResult) }
+        // Update the HTML elements with Pokémon data
+        document.getElementById("frontImage").src = data.sprites.front_default;
+        document.getElementById("backImage").src = data.sprites.back_default;
+        document.getElementById("name").textContent = data.name;
+        document.getElementById("height").textContent = data.height / 10; // Height is in decimetres
+        document.getElementById("weight").textContent = data.weight / 10; // Weight is in hectograms
+        document.getElementById("hp").textContent = data.stats[0].base_stat;
+        document.getElementById("attack").textContent = data.stats[1].base_stat;
+        document.getElementById("defense").textContent = data.stats[2].base_stat;
+        document.getElementById("speed").textContent = data.stats[5].base_stat;
+        document.getElementById("type").textContent = data.types.map(type => type.type.name).join(", ");
+      } catch (error) {
+        console.error("Error fetching Pokémon data:", error);
+        alert("No se encontró ningún Pokémon con ese nombre.");
+      }
+    }
+ 
 
-// Valida que haya un resultado y muestra la imagen.
-    if (searchResult) {
-        const pokemonImage = document.createElement("img");
-        pokemonImage.src = `https://assets.pokemon.com/assets/cms2/img/pokedex/full/${searchResult}.png`
-        document.body.appen }
+
+// const URL = "https://rickandmortyapi.com/api/character";
+
+// const ulElementCharacters = document.querySelector("ul")
+
+// // Muestra en la consola lo que ha buscado el usuario en el formulario, al hacer click en la lupa de buscar.
+// function search() {
+//     let searchResult = document.getElementById("searchpokemon").value;
+//     console.log(searchResult) }
+
+// // Valida que haya un resultado y muestra la imagen.
+//     if (searchResult) {
+//         const pokemonImage = document.createElement("img");
+//         pokemonImage.src = `https://assets.pokemon.com/assets/cms2/img/pokedex/full/${searchResult}.png`
+//         document.body.appen }

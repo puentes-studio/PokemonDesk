@@ -26,32 +26,44 @@
     </nav>
 
     <header class="header">
-        <img src="assets/img/Pokédex_logo.png" alt="Logo Pokedex">
+        <img src="assets/img/Pokedex_logo.png" alt="Logo Pokedex">
     </header>
     
 <section>
 
     <div class="searchcontainer">
-        <input type="text" id="searchpokemon" placeholder="¿Qué pokemon buscas?" class="searchbarstyle">
-        <button class="searchbuttonstyle">🔍</button>
+        <label for="pokemonName">Nombre del Pokémon:</label>
+        <input type="text" id="pokemonName" placeholder="¿Qué pokemon buscas?" class="searchbarstyle">
+        <button class="searchbuttonstyle" onclick="getPokemonData()">🔍</button>
     </div>
-    
-    
+</section>
+   
+  
+  
+<section>  
     <div id="pokemonDetails" class="hidden">
-        <h2>Pokémon Details</h2>
         <div id="pokemonInfo">
-            <!-- Pokémon data will be displayed here -->
-        </div>
-        <div id="pokemonImages">
-            <!-- Pokémon images will be displayed here -->
-        </div>
-    </div>
+            <img id="frontImage" src="" alt="Front Image">
+            <img id="backImage" src="" alt="Back Image">
+            <h2 id="name"></h2>
+            <p>Altura: <span id="height"></span> m</p>
+            <p>Peso: <span id="weight"></span> kg</p>
+            <p>Puntos de Vida: <span id="hp"></span></p>
+            <p>Ataque: <span id="attack"></span></p>
+            <p>Defensa: <span id="defense"></span></p>
+            <p>Velocidad: <span id="speed"></span></p>
+            <p>Tipo: <span id="type"></span></p>
+          </div>
     
     <div id="searchResults">
         <!-- Search results will be displayed here -->
     </div>
 
 </section>   
+
+<footer>
+    Made in Vigo - Canarias - Valencia - Londres
+</footer>
 
 
   
@@ -61,10 +73,14 @@
     <!-- NOTAS -->
     
 
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="assets/js/main.js"></script>
 
-    <audio autoplay loop hidden>  <!-- Aquí inserté la melodía clásica de Pokémon de forma de que sea invisible y se reproduzca automáticamente en bucle -->
-        <source src="/assets/Music-Pokemon.mp3" type="audio/mp3"> <!--Música Game Boy-->
+
+    <!--
+    <audio autoplay loop hidden>  
+        <source src="/assets/Music-Pokemon.mp3" type="audio/mp3"> 
     </audio>
+    -->
 </body>
 </html>

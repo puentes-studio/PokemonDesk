@@ -4,6 +4,10 @@ body {
     color: rgb(39, 39, 39);
     font-family: 'Comfortaa', sans-serif;
     font-family: 'Inclusive Sans', sans-serif;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 2rem 8.5rem 8rem 1fr 2rem;
     
 }
 
@@ -50,7 +54,6 @@ section {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100vh;
 }
 
 .searchcontainer{
