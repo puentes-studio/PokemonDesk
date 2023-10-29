@@ -7,7 +7,7 @@ body {
     height: 100vh;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 2rem 8.5rem 8rem 1fr 2rem;
+    grid-template-rows: 2rem 8.5rem 1fr 2rem;
     
 }
 
@@ -73,7 +73,7 @@ label {
 }
 
 .searchbarstyle{
-    min-width: 100vh;
+    min-width: 60vh;
     height: 40px;
     border: none;
     background-color: rgb(236, 238, 236);
@@ -103,6 +103,9 @@ label {
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: white;
+    border-radius: 8px;
+    padding: 3.4rem;
 }
 
 section.pokemonCard p {
@@ -116,4 +119,42 @@ footer {
     justify-content: center;
     align-items: center;
     font-size: 0.7em;
+}
+
+
+@media (max-width: 600px){
+    body {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 3rem 9rem 1fr 2rem;
+        
+    }
+
+    header img {
+        height: 150%;
+    }
+
+    .searchbarstyle {
+        min-width: 35vh;
+    }
+
+    label {
+        display: flex;
+        justify-content: center;
+        justify-content: center;
+        font-size: 3rem;
+        text-align: center;
+    }
+
+    .pokemonCard {
+        padding-top: 6rem;
+    }
+
+    .pokemonInfo {
+        font-size: 0.8em;
+        padding: 2rem;
+    }
+
+
+
 }
