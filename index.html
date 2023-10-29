@@ -29,10 +29,11 @@
         <img src="assets/img/Pokedex_logo.png" alt="Logo Pokedex">
     </header>
     
-<section>
-
+    
+<section class="searcher">
+    <label for="pokemonName">Nombre del Pokémon:</label>
     <div class="searchcontainer">
-        <label for="pokemonName">Nombre del Pokémon:</label>
+        
         <input type="text" id="pokemonName" placeholder="¿Qué pokemon buscas?" class="searchbarstyle">
         <button class="searchbuttonstyle" onclick="getPokemonData()">🔍</button>
     </div>
@@ -40,14 +41,16 @@
    
   
   
-<section>  
-    <div id="pokemonDetails" class="hidden">
-        <div id="pokemonInfo">
+<section class="pokemonCard">  
+  
+        <div class="pokemonInfo" id="pokemonInfo">
+            <div class="pokemonImage">
             <img id="frontImage" src="" alt="Front Image">
             <img id="backImage" src="" alt="Back Image">
+        </div>
             <h2 id="name"></h2>
-            <p>Altura: <span id="height"></span> m</p>
-            <p>Peso: <span id="weight"></span> kg</p>
+            <p>Altura (mts): <span id="height"></span></p>
+            <p>Peso (kg): <span id="weight"></span></p>
             <p>Puntos de Vida: <span id="hp"></span></p>
             <p>Ataque: <span id="attack"></span></p>
             <p>Defensa: <span id="defense"></span></p>
@@ -61,7 +64,7 @@
 
 </section>   
 
-<footer>
+<footer class="footer">
     Made in Vigo - Canarias - Valencia - Londres
 </footer>
 
