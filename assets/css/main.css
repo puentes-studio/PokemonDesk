@@ -1,13 +1,14 @@
+@import url(https://fonts.googleapis.com/css?family=Righteous);
+
 body {
     margin: 0;
     background-color: rgb(241, 241, 241);
     color: rgb(39, 39, 39);
     font-family: 'Comfortaa', sans-serif;
-    font-family: 'Inclusive Sans', sans-serif;
     height: 100vh;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 2rem 8.5rem 8rem 1fr 2rem;
+    grid-template-rows: 2rem 8.5rem 1fr 2rem;
     
 }
 
@@ -50,6 +51,43 @@ header{
 }
 
 
+label {
+    display: inline-block;
+    color: #ff2222;
+    font-family: 'Righteous', serif;
+    font-size: 2em;
+    text-shadow: 0.03em 0.03em 0 hsl(231.66deg 96.61% 24.11%);
+}
+
+    label:after {
+      content: attr(data-shadow);
+      position: absolute;
+      top: .06em; left: .06em;
+      z-index: -1;
+      text-shadow: none;
+      background-image:
+        linear-gradient(
+          45deg,
+          transparent 45%,
+          rgb(254, 39, 39) 45%,
+          rgb(251, 49, 49) 55%,
+          transparent 0,
+          );
+      background-size: .05em .05em;
+      -webkit-background-clip: text; /* For WebKit-based browsers */
+        -moz-background-clip: text;    /* For Mozilla Firefox */
+        background-clip: text;         /* For modern non-WebKit browsers */
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    
+      animation: shad-anim 15s linear infinite;
+      }
+  
+  @keyframes shad-anim {
+    0% {background-position: 0 0}
+    50% {background-position: 100% -100%}
+    }
+
   
 
 section {
@@ -59,10 +97,12 @@ section {
     align-items: center;
 }
 
+
+
 label {
     padding-top: 3rem;
     font-size: 2rem;
-}
+} 
 
 .searchcontainer{
     display: flex;
@@ -73,7 +113,7 @@ label {
 }
 
 .searchbarstyle{
-    min-width: 100vh;
+    min-width: 60vh;
     height: 40px;
     border: none;
     background-color: rgb(236, 238, 236);
@@ -97,12 +137,16 @@ label {
 .pokemonCard {
     display: flex;
     justify-content: center;
+    padding-top: 1.5rem;
 }
 
 .pokemonInfo {
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: white;
+    border-radius: 8px;
+    padding: 3.4rem;
 }
 
 section.pokemonCard p {
@@ -116,4 +160,42 @@ footer {
     justify-content: center;
     align-items: center;
     font-size: 0.7em;
+}
+
+
+@media (max-width: 600px){
+    body {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 3rem 9rem 1fr 2rem;
+        
+    }
+
+    header img {
+        height: 150%;
+    }
+
+    .searchbarstyle {
+        min-width: 35vh;
+    }
+
+    label {
+        display: flex;
+        justify-content: center;
+        justify-content: center;
+        font-size: 3rem;
+        text-align: center;
+    }
+
+    .pokemonCard {
+        padding-top: 2rem;
+    }
+
+    .pokemonInfo {
+        font-size: 0.8em;
+        padding: 2rem;
+    }
+
+
+
 }
