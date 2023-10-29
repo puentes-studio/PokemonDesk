@@ -1,6 +1,11 @@
 'use strict';
 
 document.getElementById("search-button").addEventListener("click", searchPokemon);
+        document.getElementById("pokemon-name").addEventListener("keyup", function (event) {
+            if (event.key === "Enter") {
+                searchPokemon();
+            }
+        });
 
 function searchPokemon() {
     const pokemonName = document.getElementById("pokemon-name").value.toLowerCase();
