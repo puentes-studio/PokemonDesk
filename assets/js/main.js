@@ -16,7 +16,8 @@ function searchPokemon() {
     fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`)
         .then(response => response.json())
         .then(data => {
-            displayPokemonInfo(data);
+          data.name = data.name.charAt(0).toUpperCase() + data.name.slice(1); //LOGRÉ CAPITALIZAR LA PRIMERA LETRA DE CADA POKÉMON
+          displayPokemonInfo(data);
         })
         .catch(error => {
             console.error("Error al cargar los datos del Pokémon: ", error);
