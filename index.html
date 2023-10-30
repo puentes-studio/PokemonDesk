@@ -15,6 +15,8 @@
 </head>
     <body>
 
+        <!-- NAV BAR -->
+
         <nav class="nav-pokemon">
             <ul>
                 <li><a href="https://www.pokemon.com/uk">Pokémon Official Site</a></li>
@@ -22,33 +24,35 @@
             </ul>
         </nav>
 
+
+        <!-- HEADER POKEMON -->
+
         <header class="header">
             <img src="assets/img/Pokedex_logo.png" alt="Logo Pokedex">
         </header>
 
 
+        <!-- CONTAINER SEARCH BARN AND POKEMON CARD -->
 
         <container>
-
             <section class="searcher">
-
+                <!-- TITLE -->
                 <h1 class="playful" for="pokemonName">
                     <span aria-hidden="true">B</span><span aria-hidden="true">u</span><span aria-hidden="true">s</span><span aria-hidden="true">c</span><span aria-hidden="true">a</span><span aria-hidden="true"> </span><span aria-hidden="true">t</span><span aria-hidden="true">u</span><span aria-hidden="true"> </span><span aria-hidden="true">P</span><span aria-hidden="true">o</span><span aria-hidden="true">k</span><span aria-hidden="true">e</span><span aria-hidden="true">m</span><span aria-hidden="true">o</span><span aria-hidden="true">n</span>
                   </h1>
 
                 <!-- <label for="pokemonName">Nombre del Pokémon:</label> -->
+                <!-- SEARCH BAR -->
 
                 <div class="searchcontainer">
-
                     <input type="text" id="pokemonName" placeholder="¿Qué pokemon buscas?" class="searchbarstyle">
                     <button class="searchbuttonstyle" onclick="getPokemonData()">🔍</button>
                 </div>
             </section>
 
-
+            <!-- POKEMON CARD -->
 
             <section class="pokemonCard">
-
                 <div class="pokemonInfo" id="pokemonInfo">
                     <div class="pokemonImage">
                         <img id="frontImage" src="" alt="Front Image">
@@ -63,14 +67,17 @@
                     <p>Velocidad: <span id="speed"></span></p>
                     <p>Tipo: <span id="type"></span></p>
                 </div>
-
-                <div id="searchResults">
-                    <!-- Search results will be displayed here -->
-                </div>
-
             </section>
         </container>
 
+        <!-- AUDIO -->
+          <!-- 
+        <audio autoplay loop hidden>  
+            <source src="/assets/Music-Pokemon.mp3" type="audio/mp3">
+        </audio>
+        -->
+
+        <!-- FOOTER -->
         <footer class="footer">
             Made in Vigo - Canarias - Valencia - Londres
         </footer>
@@ -78,17 +85,11 @@
 
 
 
-        <!-- Podemos sacar las fotos de aquí: https://www.pokemon.com/es/pokedex y reemplazar el ID por el número de pokemos -->
-        <!-- Si queremos imagen trasera podemos sacarlas de aquí: https://pokemondb.net/sprites/ditto pero el alt: la primera letra es Mayúscula y en el JSON todo minúscular, creo que habría que modificar esto para que encuentre la URL con la imagen.  -->
         <!-- NOTAS -->
 
 
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="assets/js/main.js"></script>
-<!-- 
-    <audio autoplay loop hidden>  
-        <source src="/assets/Music-Pokemon.mp3" type="audio/mp3">
-    </audio>
-    -->
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script src="assets/js/main.js"></script>
+      
 </body>
 </html>
