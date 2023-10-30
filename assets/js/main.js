@@ -38,4 +38,7 @@ function displayPokemonInfo(data) {
     document.getElementById("defense").textContent = data.stats[2].base_stat;
     document.getElementById("speed").textContent = data.stats[5].base_stat;
 }
+
+
+
  
