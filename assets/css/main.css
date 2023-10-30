@@ -110,7 +110,6 @@ section {
     align-items: center;
     justify-content: center;
     padding-top: 1rem;
-    
 }
 .searchbarstyle{
     min-width: 60vh;
@@ -127,6 +126,9 @@ section {
     aspect-ratio: 1;
     border-radius: 100px;
     margin-left: -35px;
+    position: absolute; /* Added this line */
+    right: 0;
+    
 }
 .searchbuttonstyle:hover {
     background-color: rgb(184, 137, 255);
@@ -152,6 +154,10 @@ section.pokemonCard p {
 
 
 footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
     background-color: black;
     color: azure;
     display: flex;
