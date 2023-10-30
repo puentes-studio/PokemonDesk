@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Righteous);
+
 
 body {
     margin: 0;
@@ -12,15 +12,12 @@ body {
     
 }
 
-
-
 .nav-pokemon {
     display: flex;
     justify-content: center;
     background-color: black;
    
 }
-
 nav ul {
     display: flex;
     align-items: center;
@@ -28,14 +25,11 @@ nav ul {
     padding-inline-start: 0;
     gap: 1.6rem;
 }
-
-
 nav ul li a{
     color:antiquewhite;
     text-decoration: none;
     font-size: 0.8em
 }
-
 nav ul li a:hover {
     color: rgb(0, 255, 110);
     transform: scale();
@@ -50,38 +44,33 @@ header{
     padding: 2.4rem;
 }
   
-  .playful span {
+.playful span {
     position: relative;
     color: #0014c8;
     text-shadow: textShadow(0.25, 6, #E485F8);
     animation: scatter 1.75s infinite;
-  }
-  
-  .playful span:nth-child(2n) {
+}
+.playful span:nth-child(2n) {
     color: #c10e08;
     text-shadow: textShadow(0.25, 6, #F2A063);
     animation-delay: 0.3s;
-  }
-  
-  .playful span:nth-child(3n) {
+}
+.playful span:nth-child(3n) {
     color: #fcd304;
     text-shadow: textShadow(0.25, 6, #6EC0A9);
     animation-delay: 0.15s;
-  }
-  
-  .playful span:nth-child(5n) {
+}
+.playful span:nth-child(5n) {
     color: #060ccb;
     text-shadow: textShadow(0.25, 6, #E485F8);
     animation-delay: 0.4s;
-  }
-  
-  .playful span:nth-child(7n), .playful span:nth-child(11n) {
+}
+.playful span:nth-child(7n), .playful span:nth-child(11n) {
     color: #e45f01;
     text-shadow: textShadow(0.25, 6, #FF5555);
     animation-delay: 0.25s;
-  }
-  
-  @keyframes scatter {
+}
+@keyframes scatter {
     0% {
       top: 0;
     }
@@ -91,11 +80,8 @@ header{
     100% {
       top: 0;
     }
-  }
-  
-
-  
-  h1 {
+}
+h1 {
     font-size: 3rem;
     text-transform: uppercase;
     font-family: "Archivo Black", "Archivo", sans-serif;
@@ -104,17 +90,7 @@ header{
     max-width: 80vw;
     height: auto;
     text-align: center;
-  }
-
-/* label {
-    display: inline-block;
-    color: #ff2222;
-    font-family: 'Righteous', serif;
-    font-size: 2em;
-    text-shadow: 0.03em 0.03em 0 hsl(231.66deg 96.61% 24.11%);
-} */
-
-  
+}
 
 section {
     background-color:rgb(255, 248, 238)e;
@@ -123,12 +99,10 @@ section {
     align-items: center;
 }
 
-
-
-label {
+/* label {
     padding-top: 3rem;
     font-size: 2rem;
-} 
+}  */
 
 .searchcontainer{
     display: flex;
@@ -137,7 +111,6 @@ label {
     padding-top: 1rem;
     
 }
-
 .searchbarstyle{
     min-width: 60vh;
     height: 40px;
@@ -147,7 +120,6 @@ label {
     text-align: center;
     box-shadow: 10px 10px 7px rgb(210, 210, 210);
 }
-
 .searchbuttonstyle{
     background-color: rgb(200, 200, 200);
     border: none;
@@ -155,17 +127,16 @@ label {
     border-radius: 100px;
     margin-left: -35px;
 }
-
 .searchbuttonstyle:hover {
     background-color: rgb(184, 137, 255);
 }
+
 
 .pokemonCard {
     display: flex;
     justify-content: center;
     padding-top: 1.5rem;
 }
-
 .pokemonInfo {
     display: flex;
     flex-direction: column;
@@ -174,10 +145,10 @@ label {
     border-radius: 8px;
     padding: 3.4rem;
 }
-
 section.pokemonCard p {
     margin-block: 0;
 }
+
 
 footer {
     background-color: black;
@@ -196,7 +167,6 @@ footer {
         grid-template-rows: 3rem 9rem 1fr 2rem;
         
     }
-
     header img {
         height: 150%;
     }
