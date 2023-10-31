@@ -1,13 +1,19 @@
 
 async function getPokemonData() {
       const pokemonName = document.getElementById("pokemonName").value.toLowerCase();
-
+      
+ // oculto los elementos de la búsqueda. EL profe oak y la ficha
+  document.getElementById("pokemonInfo").style.display = "none"
+  document.getElementById("noresultsearch").style.display = "none"
+      
       try {
         // Fetch data from the Pokémon API
         const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`);
         const data = response.data;
 
         // Update the HTML elements with Pokémon data
+            //Muestra el bloque al cargar el resultado
+        document.getElementById("pokemonInfo").style.display = "block"
         document.getElementById("frontImage").src = data.sprites.front_default;
         document.getElementById("backImage").src = data.sprites.back_default;
         document.getElementById("name").textContent = data.name;
