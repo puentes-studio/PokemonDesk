@@ -11,17 +11,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&family=Josefin+Slab:wght@300&family=Saira:wght@700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Archivo+Black&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/main.css">
+
 </head>
-    <body>
-
-        <!-- NAV BAR -->
-
-        <nav class="nav-pokemon">
-            <ul>
-                <li><a href="https://www.pokemon.com/uk">Pokémon Official Site</a></li>
-                <li><a href="https://www.hackaboss.com/">Learn how to code >></a></li>
-            </ul>
-        </nav>
+<body>
+    <!-- NAV BAR -->
+    <nav class="nav-pokemon">
+        <ul>
+            <li><a href="https://www.pokemon.com/uk">Pokémon Official Site</a></li>
+            <li><a href="https://www.hackaboss.com/">Learn how to code >></a></li>
+        </ul>
+    </nav>
 
 
         <!-- HEADER POKEMON -->
@@ -43,52 +42,45 @@
                 <!-- <label for="pokemonName">Nombre del Pokémon:</label> -->
                 <!-- SEARCH BAR -->
 
-                <div class="searchcontainer">
-                    <input class="searchbarstyle" type="text" id="pokemonName" placeholder="¿Qué pokemon buscas?">
-                    <button class="searchbuttonstyle" onclick="getPokemonData()">🔍</button>
-                </div>
-            </section>
+        <div id="search-container">
+            <input class="searchBarStyle" type="text" id="pokemon-name" placeholder="¿Qué Pokémon buscas?">
+            <button class="searchButtonStyle" id="search-button">🔍</button>
+        </div>
+    </section>
+   
+  
+  <!-- pokemon card -->
+<section class="pokemonCard">  
+    <div class="pokemonInfo" id="pokemon-info">
+        <h2 class="pokemonName" id="name"></h2>
+        <div class="pokemonImage">
+        <img id="front-image" alt="Front Image">
+        <img id="back-image" alt="Back Image">
+    </div>
+        <p class="pokemonStats">Peso: <span id="weight"></span></p>
+        <p class="pokemonStats">Altura: <span id="height"></span></p>
+        <p class="pokemonStats">PS: <span id="hp"></span></p>
+        <p class="pokemonStats">Ataque: <span id="attack"></span></p>
+        <p class="pokemonStats">Defensa: <span id="defense"></span></p>
+        <p class="pokemonStats">Velocidad: <span id="speed"></span></p>
+    </div>
+    
 
-            <!-- POKEMON CARD -->
+</section>   
 
-            <section class="pokemonCard">
-                <div class="pokemonInfo" id="pokemonInfo">
-                    <div class="pokemonImage">
-                        <img id="frontImage" src="" alt="Front Image">
-                        <img id="backImage" src="" alt="Back Image">
-                    </div>
-                    <h2 class="pokemonName" id="name"></h2>
-                    <p class="pokemonStats">Altura (mts): <span id="height"></span></p>
-                    <p class="pokemonStats">Peso (kg): <span id="weight"></span></p>
-                    <p class="pokemonStats">Puntos de Vida: <span id="hp"></span></p>
-                    <p class="pokemonStats">Ataque: <span id="attack"></span></p>
-                    <p class="pokemonStats">Defensa: <span id="defense"></span></p>
-                    <p class="pokemonStats">Velocidad: <span id="speed"></span></p>
-                    <p class="pokemonStats">Tipo: <span id="type"></span></p>
-                </div>
-            </section>
-        </container>
+</container>
 
-        <!-- AUDIO -->
-          <!-- 
-        <audio autoplay loop hidden>  
-            <source src="/assets/Music-Pokemon.mp3" type="audio/mp3">
-        </audio>
-        -->
+<!-- Footer -->
+<footer class="footer">
+    Made in Vigo - Canarias - Valencia - Londres
+</footer>
 
-        <!-- FOOTER -->
-        <footer class="footer">
-            Made in Vigo - Canarias - Valencia - Londres
-        </footer>
-
-
-
-
-        <!-- NOTAS -->
-
-
-        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-        <script src="assets/js/main.js"></script>
-      
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="assets/js/main.js"></script>
+<!-- 
+    <audio autoplay loop hidden>  
+        <source src="/assets/Music-Pokemon.mp3" type="audio/mp3">
+    </audio>
+    -->
 </body>
 </html>
