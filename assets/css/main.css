@@ -42,32 +42,34 @@ header{
     justify-content: center;
     background-color: #cd0000;
     padding: 2.4rem;
+    border-bottom: #adffad 3px solid;
+    border-top: white 5px solid;
 }
   
 .playful span {
     position: relative;
-    color: #0014c8;
-    text-shadow: textShadow(0.25, 6, #E485F8);
+    color: #000000;
+    text-shadow: 2px 2px 4px rgb(244, 254, 47);
     animation: scatter 1.75s infinite;
 }
 .playful span:nth-child(2n) {
-    color: #c10e08;
-    text-shadow: textShadow(0.25, 6, #F2A063);
+    color: #000000;
+    text-shadow: 2px 2px 4px rgb(244, 254, 47);
     animation-delay: 0.3s;
 }
 .playful span:nth-child(3n) {
-    color: #fcd304;
-    text-shadow: textShadow(0.25, 6, #6EC0A9);
+    color: #000000;
+    text-shadow: 2px 2px 4px rgb(244, 254, 47);
     animation-delay: 0.15s;
 }
 .playful span:nth-child(5n) {
-    color: #060ccb;
-    text-shadow: textShadow(0.25, 6, #E485F8);
+    color: #000000;
+    text-shadow: 2px 2px 4px rgb(244, 254, 47);
     animation-delay: 0.4s;
 }
 .playful span:nth-child(7n), .playful span:nth-child(11n) {
-    color: #e45f01;
-    text-shadow: textShadow(0.25, 6, #FF5555);
+    color: #000000;
+    text-shadow: 2px 2px 4px rgb(244, 254, 47);
     animation-delay: 0.25s;
 }
 @keyframes scatter {
@@ -82,7 +84,7 @@ header{
     }
 }
 h1 {
-    font-size: 3rem;
+    font-size: 2.3rem;
     text-transform: uppercase;
     font-family: "Archivo Black", "Archivo", sans-serif;
     font-weight: normal;
@@ -97,6 +99,7 @@ section {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 
 /* label {
@@ -104,30 +107,32 @@ section {
     font-size: 2rem;
 }  */
 
-.searchcontainer{
+.search-container{
     display: flex;
     align-items: center;
     justify-content: center;
     padding-top: 1rem;
-    
 }
-.searchbarstyle{
+.searchBarStyle{
     min-width: 60vh;
     height: 40px;
-    border: none;
+    border: 4px solid black;
     background-color: rgb(236, 238, 236);
     border-radius: 40px;
     text-align: center;
     box-shadow: 10px 10px 7px rgb(210, 210, 210);
 }
-.searchbuttonstyle{
-    background-color: rgb(200, 200, 200);
+.searchButtonStyle {
+    background-color: rgb(188 184 187);
+    color: #000000;
     border: none;
     aspect-ratio: 1;
     border-radius: 100px;
-    margin-left: -35px;
+    margin-left: -40px;
+    margin-top: 9px;
+    /* position: absolute; Added this line */
 }
-.searchbuttonstyle:hover {
+.searchButtonStyle:hover {
     background-color: rgb(184, 137, 255);
 }
 
@@ -155,18 +160,57 @@ section {
 .pokemonInfo {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    position: relative;
     background-color: white;
+    border:rgb(201 221 209) solid 5px;
     border-radius: 8px;
     padding: 3.4rem;
-    margin-bottom: 20px;
+    height: fit-content;
+    font-family: 'Josefin Slab', serif;
+    max-width: 300px;
+    color: #000000;
+    text-align: center;
+    padding: 10px;
+    margin-bottom: 2rem;
 }
+.pokemonInfo:before {
+    content: '';
+    background: radial-gradient(black 33%, transparent 33%);
+    background-size: 3px 3px;
+    border: 4px;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    z-index: -1;
+
+}
+.pokemonImage {
+    border: 0.5px dashed rgb(81, 81, 81);
+}
+
+.pokemonName{
+    text-transform: capitalize;
+    font-size: 15px;
+    border-bottom: 1px dashed rgb(145, 242, 8);
+
+}
+
+.pokemonStats {
+    display: flex;
+    justify-content: space-between;
+}
+
 section.pokemonCard p {
     margin-block: 0;
 }
 
 
 footer {
+    bottom: 0;
+    left: 0;
+    width: 100%;
     background-color: black;
     color: azure;
     display: flex;
@@ -174,6 +218,7 @@ footer {
     align-items: center;
     font-size: 0.7em;
 }
+
 
 
 @media (max-width: 600px){
