@@ -132,13 +132,10 @@ section {
     margin-top: 9px;
     /* position: absolute; Added this line */
 }
-.searchbuttonstyle:hover {
+.searchButtonStyle:hover {
     background-color: rgb(184, 137, 255);
 }
 
-.searchbuttonstyle:hover {
-    background-color: rgb(184, 137, 255);
-}
 
 /* .pokeCard {
     position: relative;
@@ -243,6 +240,9 @@ section.pokemonCard p {
 
 
 footer {
+    bottom: 0;
+    left: 0;
+    width: 100%;
     background-color: black;
     color: azure;
     display: flex;

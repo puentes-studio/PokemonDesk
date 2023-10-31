@@ -44,4 +44,3 @@ function displayPokemonInfo(data) {
 
 
 
- 
