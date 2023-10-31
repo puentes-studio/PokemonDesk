@@ -8,7 +8,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="img/favicon_io/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="img/favicon_io/favicon-16x16.png">
     <link rel="icon" type="image/jpg" href="img/favicon_io/favicon.ico"/>
-    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&family=Inclusive+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&family=Josefin+Slab:wght@300&family=Saira:wght@700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Archivo+Black&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/main.css">
 </head>
@@ -44,7 +44,7 @@
                 <!-- SEARCH BAR -->
 
                 <div class="searchcontainer">
-                    <input type="text" id="pokemonName" placeholder="¿Qué pokemon buscas?" class="searchbarstyle">
+                    <input class="searchbarstyle" type="text" id="pokemonName" placeholder="¿Qué pokemon buscas?">
                     <button class="searchbuttonstyle" onclick="getPokemonData()">🔍</button>
                 </div>
             </section>
@@ -57,14 +57,14 @@
                         <img id="frontImage" src="" alt="Front Image">
                         <img id="backImage" src="" alt="Back Image">
                     </div>
-                    <h2 id="name"></h2>
-                    <p>Altura (mts): <span id="height"></span></p>
-                    <p>Peso (kg): <span id="weight"></span></p>
-                    <p>Puntos de Vida: <span id="hp"></span></p>
-                    <p>Ataque: <span id="attack"></span></p>
-                    <p>Defensa: <span id="defense"></span></p>
-                    <p>Velocidad: <span id="speed"></span></p>
-                    <p>Tipo: <span id="type"></span></p>
+                    <h2 class="pokemonName" id="name"></h2>
+                    <p class="pokemonStats">Altura (mts): <span id="height"></span></p>
+                    <p class="pokemonStats">Peso (kg): <span id="weight"></span></p>
+                    <p class="pokemonStats">Puntos de Vida: <span id="hp"></span></p>
+                    <p class="pokemonStats">Ataque: <span id="attack"></span></p>
+                    <p class="pokemonStats">Defensa: <span id="defense"></span></p>
+                    <p class="pokemonStats">Velocidad: <span id="speed"></span></p>
+                    <p class="pokemonStats">Tipo: <span id="type"></span></p>
                 </div>
             </section>
         </container>

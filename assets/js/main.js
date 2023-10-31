@@ -1,9 +1,13 @@
+const pokemonNameInput = document.getElementById("pokemonName");
+const searchButton = document.getElementById("searchButton");
+const pokemonInfo = document.getElementById("pokemonInfo");
 
+
+// Get Pokemon Data - Obtiene la data de Pokemon
 async function getPokemonData() {
-      const pokemonName = document.getElementById("pokemonName").value.toLowerCase();
-
-      try {
-        // Fetch data from the Pokémon API
+      const pokemonName = pokemonNameInput.value.toLowerCase();
+        try {
+        // Fetch data from the Pokémon API - Fetch data de la API
         const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`);
         const data = response.data;
 
@@ -19,12 +23,26 @@ async function getPokemonData() {
         document.getElementById("speed").textContent = data.stats[5].base_stat;
         document.getElementById("type").textContent = data.types.map(type => type.type.name).join(", ");
       } catch (error) {
-        console.error("Error fetching Pokémon data:", error);
-        alert("No se encontró ningún Pokémon con ese nombre.");
+        renderNotFound()
       }
     }
- 
 
+    searchButton.addEventListener("click", getPokemonData);
+    pokemonNameInput.addEventListener("keydown", (event) => {
+        if (event.key === "Enter") {
+            getPokemonData();
+        }
+    });
+ 
+    const renderNotFound = () => {
+        pokeName.textContent = 'No encontrado';
+        pokeImg.setAttribute('src', 'img/pokemon-img-01.png');
+        pokeImg.style.background =  '#fff';
+        pokeImg.style.borderRadius = '50px';
+        pokeTypes.innerHTML = '';
+        pokeStats.innerHTML = '';
+        pokeId.textContent = '';
+    }
 
 // const URL = "https://rickandmortyapi.com/api/character";
 
