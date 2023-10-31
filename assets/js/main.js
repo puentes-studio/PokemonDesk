@@ -20,7 +20,14 @@ async function getPokemonData() {
         document.getElementById("type").textContent = data.types.map(type => type.type.name).join(", ");
       } catch (error) {
         console.error("Error fetching Pokémon data:", error);
-        alert("No se encontró ningún Pokémon con ese nombre.");
+        const pokeNotFound = document.getElementById("noresultsearch")
+        if(pokeNotFound){
+            pokeNotFound.classList.add("noresultoak")
+            pokeNotFound.style.display = "block"
+            
+        }
+
+        //alert("No se encontró ningún Pokémon con ese nombre.");
       }
     }
  
