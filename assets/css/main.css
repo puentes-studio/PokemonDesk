@@ -150,7 +150,7 @@ section.pokemonCard p {
 }
 .pokemonCardContainer {
     opacity: 0;
-    height: 123px;
+    height: 80px;
 }
 
 .sprite-img {
@@ -245,3 +245,14 @@ footer {
     align-items: center; 
     justify-content: center; 
 }
+
+/*TENGO QUE DARLE UNA VUELTA A ESTO*/
+#pokemon-info { 
+    background-color: mediumaquamarine; 
+    border: 1px solid #ccc; 
+    border-radius: 8px; 
+    padding: 0px; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); 
+    margin-top: 30px;
+}
+
