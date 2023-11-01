@@ -4,14 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokémon Search App</title>
-    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon_io/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon_io/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon_io/favicon-16x16.png">
-    <link rel="icon" type="image/jpg" href="img/favicon_io/favicon.ico"/>
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&family=Inclusive+Sans&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Archivo+Black&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/main.css">
-    <script src="JS_Prueba_PokémonApi.js"></script> <!--AQUÍ VA EL LINK AL JS DE PRUEBA QUE HICE PARA EL VISUALIZADOR-->
 </head>
 <body>
 
@@ -32,7 +27,7 @@
         <!-- HEADER POKEMON -->
 
         <header class="header">
-            <img src="assets/img/Pokedex_logo.png" alt="Logo Pokedex">
+            <img src="assets/img/Pokedex_logo.png" alt="Logo Pokedex" figcaption="imagen pokemon">
         </header>
 
 
@@ -49,8 +44,8 @@
                 <!-- SEARCH BAR -->
 
     <div id="search-container">
-        <input type="text" id="pokemon-name" placeholder="¿Qué Pokémon buscas?" class="searchbarstyle">
-        <button class="searchbuttonstyle" id="search-button">🔍</button>
+        <input type="text" id="pokemon-name" placeholder="¿Qué Pokémon buscas?" class="searchbarstyle" onkeydown="hideErrorMsg()">
+        <button class="searchbuttonstyle" id="search-button" onclick="searchPokemon()">🔍</button>
     </div>
 </section>
    
@@ -58,15 +53,26 @@
   
 <section>  
     <div id="pokemon-info">
-        <h2 id="name"></h2>
-        <img id="front-image" alt="Front Image">
-        <img id="back-image" alt="Back Image">
-        <p>Peso: <span id="weight"></span></p>
-        <p>Altura: <span id="height"></span></p>
-        <p>PS: <span id="hp"></span></p>
-        <p>Ataque: <span id="attack"></span></p>
-        <p>Defensa: <span id="defense"></span></p>
-        <p>Velocidad: <span id="speed"></span></p>
+        <span id="no-pokemon" class="error-busqueda">No se encontró ningún pokemon con ese nombre</span>
+        <div id="pokemon-img" class="pokemonCardContainer">
+            <h2 id="name"></h2>
+            <div class="sprite-img">
+                <div class="sprite-container">
+                    <img id="front-image" alt="Front Image" class="img-front" onmouseenter="showShiny()" onmouseleave="hideShiny()">
+                    <img id="back-image" alt="Back Image" class="img-back">
+                </div>
+                <div class="sprite-container sprite-shiny">
+                    <img id="front-image-shiny" alt="Front Image" class="img-front-shiny" onmouseenter="showShiny()" onmouseleave="hideShiny()">
+                    <img id="back-image-shiny" alt="Back Image" class="img-back-shiny">
+                </div>
+            </div>
+        </div>
+        <p class="centrado">Peso: <span id="weight"></span></p>
+        <p class="centrado">Altura: <span id="height"></span></p>
+        <p class="centrado">PS: <span id="hp"></span></p>
+        <p class="centrado">Ataque: <span id="attack"></span></p>
+        <p class="centrado">Defensa: <span id="defense"></span></p>
+        <p class="centrado">Velocidad: <span id="speed"></span></p>
     </div>
     
     </div>
@@ -85,7 +91,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="assets/js/main.js"></script>
-<!-- 
+   <!-- 
     <audio autoplay loop hidden>  
         <source src="/assets/Music-Pokemon.mp3" type="audio/mp3">
     </audio>
