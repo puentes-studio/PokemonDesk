@@ -42,6 +42,12 @@ header{
     padding: 3.4rem;
 }
 
+#amazon-logo {
+    padding: 0;
+    width: 70px;
+    margin-right: 20px;
+}
+
 #instagram-logo {
   padding: 0;
   width: 100px;
