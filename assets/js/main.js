@@ -92,8 +92,15 @@ function handleDataApi(data) {
 function handleErrorApi(error) {
   hideCardContainer();
   removePokemonInfo();
+  hideStats();
   showErrorMsg();
   console.error("Error al cargar los datos del Pokémon: ", error);
+}
+
+function hideStats() {
+  statsTextElements.forEach((element) => {
+    element.style.display = 'none';
+  });
 }
 
 function searchPokemon() {
