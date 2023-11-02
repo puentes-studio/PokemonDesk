@@ -13,6 +13,7 @@ const pokemonAttackContent = document.getElementById("attack");
 const pokemonDefenseContent = document.getElementById("defense");
 const pokemonSpeedContent = document.getElementById("speed");
 const errorSpan = document.getElementById("no-pokemon");
+const statsTextElements = document.querySelectorAll('.carta-pokemon .stats');
 
 // FUNCIONES
 function displayPokemonInfo(data) {
@@ -28,8 +29,7 @@ function displayPokemonInfo(data) {
   pokemonImgSrcFrontShiny.src = data.sprites.front_shiny;
   pokemonImgSrcBackShiny.src = data.sprites.back_shiny;
 
-  const statsTextElements = document.querySelectorAll('.carta-pokemon .stats');
-  statsTextElements.forEach((element) => {
+  statsTextElements.forEach((element) => {  //ESTA FUNCION PERMITE OCULTAR LOS STATS HASTA QUE SE HAGA UNA BÚSQUEDA
     element.style.display = 'block';
   });
 
