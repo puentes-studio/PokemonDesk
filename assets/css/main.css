@@ -45,12 +45,13 @@ header{
 #amazon-logo {
     padding: 0;
     width: 70px;
-    margin-right: 20px;
+    margin-right: 200px;
 }
 
 #instagram-logo {
   padding: 0;
   width: 100px;
+  margin-left: 150px;
 }
   
 .playful span {
@@ -213,7 +214,7 @@ footer {
     font-size: 0.7em;
 }
 
-
+/*HAY QUE VOLVER A ADAPTAR LA PÁGINA A MOVIL*/
 @media (max-width: 600px){
     body {
         display: grid;
@@ -249,8 +250,17 @@ footer {
         font-size: 0.8em;
         padding: 2rem;
     }
+
+    .profesor-oak {
+        display: none;
+    }
 }
 
 .carta-pokemon .stats {
     display: none; 
   }
+
+.profesor-oak {
+    padding: 0;
+    margin-top: 130px;
+}
