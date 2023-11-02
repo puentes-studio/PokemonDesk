@@ -260,7 +260,7 @@ hasta aqui*/
 
 .pokemonCardContainer {
     opacity: 0;
-    height: 130px;
+    height: 120px;
 }
 
 .sprite-img {
@@ -386,7 +386,3 @@ footer {
 }
 
 
-.profesor-oak {
-    padding: 0;
-    margin-top: 130px;
-}
