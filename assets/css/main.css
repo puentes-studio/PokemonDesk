@@ -238,3 +238,7 @@ footer {
         padding: 2rem;
     }
 }
+
+.carta-pokemon .stats {
+    display: none; 
+  }

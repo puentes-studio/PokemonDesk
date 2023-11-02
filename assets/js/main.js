@@ -27,6 +27,13 @@ function displayPokemonInfo(data) {
   pokemonSpeedContent.textContent = data.stats[5].base_stat;
   pokemonImgSrcFrontShiny.src = data.sprites.front_shiny;
   pokemonImgSrcBackShiny.src = data.sprites.back_shiny;
+
+  const statsTextElements = document.querySelectorAll('.carta-pokemon .stats');
+  statsTextElements.forEach((element) => {
+    element.style.display = 'block';
+  });
+
+  showCardContainer();
 }
 
 function removePokemonInfo() {
