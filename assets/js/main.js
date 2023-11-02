@@ -12,6 +12,8 @@ const pokemonHpContent = document.getElementById("hp");
 const pokemonAttackContent = document.getElementById("attack");
 const pokemonDefenseContent = document.getElementById("defense");
 const pokemonSpeedContent = document.getElementById("speed");
+const pokemonSpecialAttackContent = document.getElementById("special-attack");
+const pokemonSpecialDefenseContent = document.getElementById("special-defense");
 const errorSpan = document.getElementById("no-pokemon");
 const statsTextElements = document.querySelectorAll('.carta-pokemon .stats');
 
@@ -25,6 +27,8 @@ function displayPokemonInfo(data) {
   pokemonHpContent.textContent = data.stats[0].base_stat;
   pokemonAttackContent.textContent = data.stats[1].base_stat;
   pokemonDefenseContent.textContent = data.stats[2].base_stat;
+  pokemonSpecialAttackContent.textContent = data.stats[3].base_stat; 
+  pokemonSpecialDefenseContent.textContent = data.stats[4].base_stat;
   pokemonSpeedContent.textContent = data.stats[5].base_stat;
   pokemonImgSrcFrontShiny.src = data.sprites.front_shiny;
   pokemonImgSrcBackShiny.src = data.sprites.back_shiny;
