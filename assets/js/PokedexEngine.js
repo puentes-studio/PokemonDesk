@@ -100,7 +100,7 @@ function handleErrorApi(error) {
   removePokemonInfo();
   hideStats();
   showErrorMsg();
-  console.error("Error al cargar los datos del Pokémon: ", error);
+  errorSpan.textContent = "No se encontró el Pokémon. Intente con otro nombre.";
 }
 
 function hideStats() {
