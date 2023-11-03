@@ -6,6 +6,7 @@ const pokemonImgSrcFront = document.getElementById("front-image");
 const pokemonImgSrcBack = document.getElementById("back-image");
 const pokemonImgSrcFrontShiny = document.getElementById("front-image-shiny");
 const pokemonImgSrcBackShiny = document.getElementById("back-image-shiny");
+const pokemonTypeContent = document.getElementById("type");
 const pokemonWeightContent = document.getElementById("weight");
 const pokemonHeightContent = document.getElementById("height");
 const pokemonHpContent = document.getElementById("hp");
@@ -22,6 +23,7 @@ function displayPokemonInfo(data) {
   pokemonNameContent.textContent = data.name;
   pokemonImgSrcFront.src = data.sprites.front_default;
   pokemonImgSrcBack.src = data.sprites.back_default;
+  pokemonTypeContent.textContent = data.types.map(type => type.type.name).join(', ');
   pokemonWeightContent.textContent = data.weight / 10 + " kg";
   pokemonHeightContent.textContent = data.height / 10 + " m";
   pokemonHpContent.textContent = data.stats[0].base_stat;
