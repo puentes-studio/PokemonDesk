@@ -1,5 +1,6 @@
 // VARIABLES
 const pokemonNameInput = document.getElementById("pokemon-name");
+const suggestionsList = document.getElementById("suggestions");
 const pokemonCardContainer = document.getElementById("pokemon-img");
 const pokemonNameContent = document.getElementById("name");
 const pokemonImgSrcFront = document.getElementById("front-image");
@@ -17,7 +18,7 @@ const pokemonSpecialAttackContent = document.getElementById("special-attack");
 const pokemonSpecialDefenseContent = document.getElementById("special-defense");
 const errorSpan = document.getElementById("no-pokemon");
 const statsTextElements = document.querySelectorAll('.carta-pokemon .stats');
-
+let allPokemon = [];
 // FUNCIONES
 function displayPokemonInfo(data) {
   pokemonNameContent.textContent = data.name;
@@ -29,19 +30,16 @@ function displayPokemonInfo(data) {
   pokemonHpContent.textContent = data.stats[0].base_stat;
   pokemonAttackContent.textContent = data.stats[1].base_stat;
   pokemonDefenseContent.textContent = data.stats[2].base_stat;
-  pokemonSpecialAttackContent.textContent = data.stats[3].base_stat; 
+  pokemonSpecialAttackContent.textContent = data.stats[3].base_stat;
   pokemonSpecialDefenseContent.textContent = data.stats[4].base_stat;
   pokemonSpeedContent.textContent = data.stats[5].base_stat;
   pokemonImgSrcFrontShiny.src = data.sprites.front_shiny;
   pokemonImgSrcBackShiny.src = data.sprites.back_shiny;
-
   statsTextElements.forEach((element) => {  //ESTA FUNCION PERMITE OCULTAR LOS STATS HASTA QUE SE HAGA UNA BÚSQUEDA
     element.style.display = 'block';
   });
-
   showCardContainer();
 }
-
 function removePokemonInfo() {
   pokemonNameContent.textContent = "";
   pokemonImgSrcFront.src = "";
@@ -55,46 +53,36 @@ function removePokemonInfo() {
   pokemonImgSrcFrontShiny.src = "";
   pokemonImgSrcBackShiny.src = "";
 }
-
 function showShiny() {
   pokemonImgSrcFrontShiny.style.opacity = 1;
 }
-
 function hideShiny() {
   pokemonImgSrcFrontShiny.style.opacity = 0;
 }
-
 function hideCardContainer() {
   pokemonCardContainer.style.opacity = 0;
 }
-
 function showCardContainer() {
   pokemonCardContainer.style.opacity = 1;
 }
-
 function showErrorMsg() {
   errorSpan.style.opacity = 1;
 }
-
 function hideErrorMsg() {
   errorSpan.style.opacity = 0;
 }
-
 function isValidPokemonName(pokemonName) {
   console.log({ validation: pokemonName.trim(), pokemonName });
   return pokemonName.trim() !== "";
 }
-
 function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
-
 function handleDataApi(data) {
   data.name = capitalizeFirstLetter(data.name);
   displayPokemonInfo(data);
   showCardContainer();
 }
-
 function handleErrorApi(error) {
   hideCardContainer();
   removePokemonInfo();
@@ -102,29 +90,99 @@ function handleErrorApi(error) {
   showErrorMsg();
   errorSpan.textContent = "No se encontró el Pokémon. Intente con otro nombre.";
 }
-
 function hideStats() {
   statsTextElements.forEach((element) => {
     element.style.display = 'none';
   });
 }
-
+// NUEVA FUNCIÓN QUE MUESTRA LAS DIFERENTES OPCIONES DE POKÉMON SI HAY COINCIDENCIAS EN EL NOMBRE Y EN TIEMPO REAL
+function displaySuggestionsDropdown(suggestions) {
+  suggestionsList.innerHTML = "";
+  if (suggestions.length > 0) {
+    suggestionsList.style.display = "block";
+  } else {
+    suggestionsList.style.display = "none";
+    return;
+  }
+  suggestions.forEach(pokemon => {
+    const listItem = document.createElement("li");
+    listItem.textContent = pokemon.name;
+    listItem.addEventListener("click", function () {
+      pokemonNameInput.value = pokemon.name;
+      suggestionsList.style.display = "none";
+      searchSelectedPokemon(pokemon.name); // Llama a la función searchSelectedPokemon
+    });
+    suggestionsList.appendChild(listItem);
+  });
+}
 function searchPokemon() {
   const pokemonName = pokemonNameInput.value.toLowerCase();
   if (!isValidPokemonName(pokemonName)) {
     return alert("Ingrese un nombre de Pokémon válido.");
   }
-
+  fetchPokemonData(pokemonName); // Llama a la función fetchPokemonData
+}
+function fetchPokemonData(pokemonName) {
+  fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`)
+    .then((response) => response.json())
+    .then(handleDataApi)
+    .catch(handleErrorApi);
+}
+function searchSelectedPokemon(selectedPokemon) {
+  fetchPokemonData(selectedPokemon); // Llama a la función fetchPokemonData
+}
+function searchPokemon() {
+  const pokemonName = pokemonNameInput.value.toLowerCase();
+  if (!isValidPokemonName(pokemonName)) {
+    return alert("Ingrese un nombre de Pokémon válido.");
+  }
   // LLAMADA API
   fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`)
     .then((response) => response.json())
     .then(handleDataApi)
     .catch(handleErrorApi);
 }
-
 // EVENTOS
 pokemonNameInput.addEventListener("keydown", function (event) {
   if (event.key === "Enter") {
+    searchPokemon();
+  }
+});
+// EVENTOS QUE HACEN POSIBLE LA NUEVA FUNCIONALIDAD DEL BUSCADOR Y MUESTRA LAS SUGERENCIAS
+pokemonNameInput.addEventListener("keydown", function (event) {
+  if (event.key === "Enter") {
+    searchPokemon();
+  }
+});
+window.addEventListener("load", function () {
+  fetch(`https://pokeapi.co/api/v2/pokemon/?limit=1118`)
+    .then(response => response.json())
+    .then(data => {
+      allPokemon = data.results;
+    })
+    .catch(error => console.error('Error fetching data:', error));
+});
+pokemonNameInput.addEventListener("input", function () {
+  const searchTerm = pokemonNameInput.value.toLowerCase().trim();
+  if (!searchTerm) {
+    suggestionsList.style.display = "none";
+    return;
+  }
+  const filteredPokemon = allPokemon.filter(pokemon => pokemon.name.includes(searchTerm));
+  displaySuggestionsDropdown(filteredPokemon);
+});
+suggestionsList.addEventListener("mouseover", function (event) {
+  if (event.target.tagName === "LI") {
+    event.target.style.cursor = "pointer";
+    event.target.title = "Seleccionar Pokémon";
+  }
+});
+suggestionsList.addEventListener("click", function (event) {
+  if (event.target.tagName === "LI") {
+    const selectedPokemon = event.target.textContent;
+    pokemonNameInput.value = selectedPokemon;
+    suggestionsList.style.display = "none"; // Oculta la lista de sugerencias
+    // Realizar la búsqueda del Pokémon seleccionado
     searchPokemon();
   }
 });
@@ -132,4 +190,8 @@ pokemonNameInput.addEventListener("keydown", function (event) {
 
 
 
- 
+
+
+
+
+

@@ -321,15 +321,22 @@ footer {
     font-size: 0.7em;
 }
 
-/*HAY QUE VOLVER A ADAPTAR LA PÁGINA A MOVIL*/
+.suggestions-list li {
+    cursor: pointer;
+  }
+  
+  .suggestions-list li:hover {
+    cursor: pointer;
+    text-decoration: underline; 
+  }
+
+
 @media (max-width: 600px){
     body {
         display: grid;
         grid-template-columns: 1fr;
         grid-template-rows: 3rem 9rem 1fr 2rem;
-        
     }
-
     nav ul {
         display: flex;
         align-items: center;
@@ -342,11 +349,9 @@ footer {
         text-decoration: none;
         font-size: 0.5em
     }
-
     header {
         padding: 0;
     }
-  
     #amazon-logo {
         margin-right: 0.8rem;
         width: 30px
@@ -358,15 +363,12 @@ footer {
     #pokemon-logo {
         height: 85px;
     }
-
     h1 {
         font-size: 2.4rem;
     }
-
     .searchbarstyle {
         min-width: 35vh;
     }
-
     label {
         display: flex;
         justify-content: center;
@@ -374,15 +376,11 @@ footer {
         font-size: 3rem;
         text-align: center;
     }
-
     .pokemonCard {
         padding-top: 2rem;
     }
-
     .pokemonInfo {
         font-size: 0.8em;
         padding: 2rem;
     }
 }
-
-

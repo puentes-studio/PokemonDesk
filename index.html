@@ -25,10 +25,10 @@
 
         <header class="header">
             <a href="https://www.amazon.es/Nintendo-Pokemon-P%C3%BArpura/dp/B09TL39H42/ref=asc_df_B09TL39H42/?tag=googshopes-21&linkCode=df0&hvadid=529699126493&hvpos=&hvnetw=g&hvrand=16828045642403750520&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=1005480&hvtargid=pla-1640445426938&th=1" target="_blank">
-                <img src="assets/img/logo amazon.png" alt="Logo Amazon" id="amazon-logo">
+                <img src="assets/img/logo_amazon.png" alt="Logo Amazon" id="amazon-logo">
             </a>
 
-            <a href="index.html" target="_blank"><img id="pokemon-logo" src="assets/img/Pokedex_logo.png" alt="Logo Pokedex" figcaption="imagen pokemon"></a>
+            <a href="index.html" target="_blank"><img id="pokemon-logo" src="assets/img/Pokedex_logo.png" alt="Logo Pokedex"></a>
 
             <a href="https://www.instagram.com/pokemon/?hl=es" target="_blank"><img src="assets/img/instagram-logo-png.png" alt="Logo Instagram" id="instagram-logo"></a>
         </header>
@@ -36,7 +36,7 @@
 
         <!-- LETRAS ANIMADAS -->
 
-        <container>
+       <container>
             <section class="searcher">
                 <!-- TITLE -->
                 <h1 class="playful" for="pokemonName">
@@ -48,6 +48,7 @@
     <div id="search-container">
         <input type="text" id="pokemon-name" placeholder="¿Qué Pokémon buscas?" class="searchbarstyle" onkeydown="hideErrorMsg()">
         <button class="searchbuttonstyle" id="search-button" onclick="searchPokemon()">🔍</button>
+        <ul id="suggestions" class="dropdown-content" style="display: none;"></ul>
     </div>
 </section>
 
@@ -86,6 +87,7 @@
     </div>
 
 </section>   
+</container>
 
 <footer>
     Made in Vigo - Canarias - Valencia - Londres
