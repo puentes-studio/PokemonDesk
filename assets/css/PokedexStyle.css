@@ -140,8 +140,25 @@ section {
 }
 
 .dropdown-content {
-    max-height: 100px; 
+    max-height: 100px;
     overflow-y: auto;
+    margin: 0;
+    max-width: 80%;
+    scrollbar-width: thin; 
+    scrollbar-color: #333 #eee;
+}
+
+/* Styles for WebKit browsers (Chrome, Safari) */
+.dropdown-content::-webkit-scrollbar {
+    width: 20px; /* Set the width of the scrollbar */
+}
+
+.dropdown-content::-webkit-scrollbar-thumb {
+    background-color: #333; /* Color of the scrollbar thumb */
+}
+
+.dropdown-content::-webkit-scrollbar-track {
+    background-color: #848484; /* Color of the scrollbar track */
 }
 
 .dropdown-content li {
@@ -279,8 +296,6 @@ footer {
 
 @media (max-width: 600px){
     body {
-        display: grid;
-        grid-template-columns: 1fr;
         grid-template-rows: 3rem 9rem 1fr 2rem;
     }
     nav ul {
@@ -308,6 +323,58 @@ footer {
     }
     #pokemon-logo {
         height: 85px;
+    }
+    h1 {
+        font-size: 2.4rem;
+    }
+    .searchbarstyle {
+        min-width: 35vh;
+    }
+    label {
+        display: flex;
+        justify-content: center;
+        justify-content: center;
+        font-size: 3rem;
+        text-align: center;
+    }
+    .pokemonCard {
+        padding-top: 2rem;
+    }
+    .pokemonInfo {
+        font-size: 0.8em;
+        padding: 2rem;
+    }
+}
+
+@media (min-width: 600px) and (max-width: 820px){
+    body {
+        grid-template-rows: 3rem 9rem 1fr 2rem;
+    }
+    nav ul {
+        display: flex;
+        align-items: center;
+        list-style: none;
+        padding-inline-start: 0;
+        gap: 1rem
+    }
+    nav ul li a{
+        color:antiquewhite;
+        text-decoration: none;
+        font-size: 0.8em;
+    }
+    header {
+        padding: 0;
+    }
+    #amazon-logo {
+        margin-right: 0.8rem;
+        width: 70px
+    }
+    #instagram-logo {
+        margin-left: 0.7rem;
+        width: 110px;
+    }
+    #pokemon-logo {
+        height: 145px;
     }
     h1 {
         font-size: 2.4rem;
