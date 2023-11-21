@@ -2,24 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>Pokémon Search App</title>
-    <link rel="apple-touch-icon" sizes="180x180" href="assetsimg/favicon_io/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon_io/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon_io/favicon-16x16.png">
-    <link rel="icon" type="image/jpg" href="img/favicon_io/favicon.ico"/>
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&family=Josefin+Slab:wght@300&family=Saira:wght@700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Archivo+Black&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/PokedexStyle.css">
+    <link rel="icon" type="image/png" href="img/favicon_io/favicon-32x32.png">
+
 
 </head>
 
 <body>
-<!-- NAV BAR -->
+    
     <nav class="nav-pokemon">
         <ul>
-            <li><a href="https://www.pokemon.com/uk">Pokémon Official Site</a></li>
-            <li><a href="https://www.hackaboss.com/">Learn how to code >></a></li>
+            <li><a href="https://www.pokemon.com/uk" target="_blank">Pokémon Official Site</a></li>
+            <li><a href="https://www.hackaboss.com/" target="_blank">Learn how to code with Hack A Boss >></a></li>
         </ul>
     </nav>
 
@@ -27,11 +25,17 @@
         <!-- HEADER POKEMON -->
 
         <header class="header">
-            <img src="assets/img/Pokedex_logo.png" alt="Logo Pokedex">
+            <a href="https://www.amazon.es/Nintendo-Pokemon-P%C3%BArpura/dp/B09TL39H42/ref=asc_df_B09TL39H42/?tag=googshopes-21&linkCode=df0&hvadid=529699126493&hvpos=&hvnetw=g&hvrand=16828045642403750520&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=1005480&hvtargid=pla-1640445426938&th=1" target="_blank">
+                <img src="assets/img/logo amazon.png" alt="Logo Amazon" id="amazon-logo">
+            </a>
+
+            <a href="index.html" target="_blank"><img id="pokemon-logo" src="assets/img/Pokedex_logo.png" alt="Logo Pokedex" figcaption="imagen pokemon"></a>
+
+            <a href="https://www.instagram.com/pokemon/?hl=es" target="_blank"><img src="assets/img/instagram-logo-png.png" alt="Logo Instagram" id="instagram-logo"></a>
         </header>
 
 
-        <!-- CONTAINER SEARCH BAR AND POKEMON CARD -->
+        <!-- LETRAS ANIMADAS -->
 
         <container>
             <section class="searcher">
@@ -40,56 +44,64 @@
                     <span aria-hidden="true">B</span><span aria-hidden="true">u</span><span aria-hidden="true">s</span><span aria-hidden="true">c</span><span aria-hidden="true">a</span><span aria-hidden="true"> </span><span aria-hidden="true">t</span><span aria-hidden="true">u</span><span aria-hidden="true"> </span><span aria-hidden="true">P</span><span aria-hidden="true">o</span><span aria-hidden="true">k</span><span aria-hidden="true">e</span><span aria-hidden="true">m</span><span aria-hidden="true">o</span><span aria-hidden="true">n</span>
                   </h1>
 
-                <!-- SEARCH BAR -->
-                <div id="search-container">
-                    <input class="searchBarStyle" type="text" id="pokemon-name" placeholder="¿Qué Pokémon buscas?">
-                    <button class="searchButtonStyle" id="search-button">🔍</button>
+       <!-- BUSCADOR POKEMON -->
+
+    <div id="search-container">
+        <input type="text" id="pokemon-name" placeholder="¿Qué Pokémon buscas?" class="searchbarstyle" onkeydown="hideErrorMsg()">
+        <button class="searchbuttonstyle" id="search-button" onclick="searchPokemon()">🔍</button>
+    </div>
+</section>
+
+   
+  
+      <!--SPRITES DE LOS POKEMON E INFORMACIÓN DE LOS MISMOS-->
+<section>  
+    <div id="pokemon-info" class="carta-pokemon">
+        <span id="no-pokemon" class="error-busqueda"><strong>No se encontró ningún pokemon con ese nombre</strong></span>
+        <div id="pokemon-img" class="pokemonCardContainer">
+            <h2 id="name"></h2>
+            <div class="pokemonImage" >
+            <div class="sprite-img">
+                <div class="sprite-container">
+                    <img id="front-image" alt="Front Image" class="img-front" onmouseenter="showShiny()" onmouseleave="hideShiny()">
+                    <img id="back-image" alt="Back Image" class="img-back">
                 </div>
-                <div class="noresultoak" id="noresultsearch" style="display: none;" >
-                    <h2>¡Vaya!</h2> 
-                    <h4>Parece que no hemos encontrado este pokemon</h4>
-                    <img src="https://images.wikidexcdn.net/mwuploads/wikidex/0/0a/latest/20141130014622/Profesor_Oak_%28XY%29.png" alt="profesoroak">
+                <div class="sprite-container sprite-shiny">
+                    <img id="front-image-shiny" alt="Front Image" class="img-front-shiny" onmouseenter="showShiny()" onmouseleave="hideShiny()">
+                    <img id="back-image-shiny" alt="Back Image" class="img-back-shiny">
                 </div>
-            </section>
+            </div>
+        </div>
+        </div>
+        <p class="stats"><strong>Tipo:</strong> <span id="type"></span></p>
+        <p class="stats"><strong>Peso:</strong> <span id="weight"></span></p>
+        <p class="stats"><strong>Altura:</strong> <span id="height"></span></p>
+        <p class="stats"><strong>PS:</strong> <span id="hp"></span></p>
+        <p class="stats"><strong>Ataque:</strong> <span id="attack"></span></p>
+        <p class="stats"><strong>Defensa:</strong> <span id="defense"></span></p>
+        <p class="stats"><strong>Ataque Especial:</strong> <span id="special-attack"></span></p>
+        <p class="stats"><strong>Defensa Especial:</strong> <span id="special-defense"></span></p>
+        <p class="stats"><strong>Velocidad:</strong> <span id="speed"></span></p>
+    </div>
+    
+    </div>
 
-            <!-- POKEMON CARD -->
+</section>   
 
-            <section class="pokemonCard">
-                <div class="pokemonInfo" id="pokemonInfo" style="display: none;">
-                    <div class="pokemonImage">
-                        <img id="frontImage" src="" alt="Front Image">
-                        <img id="backImage" src="" alt="Back Image">
-                    </div>
-                    <h2 id="name"></h2>
-                    <p>Altura (mts): <span id="height"></span></p>
-                    <p>Peso (kg): <span id="weight"></span></p>
-                    <p>Puntos de Vida: <span id="hp"></span></p>
-                    <p>Ataque: <span id="attack"></span></p>
-                    <p>Defensa: <span id="defense"></span></p>
-                    <p>Velocidad: <span id="speed"></span></p>
-                    <p>Tipo: <span id="type"></span></p>
-                </div>
-            </section>
-        </container>
-
-        <!-- AUDIO -->
-          <!-- 
-        <audio autoplay loop hidden>  
-            <source src="/assets/Music-Pokemon.mp3" type="audio/mp3">
-        </audio>
-        -->
-
-        <!-- FOOTER -->
-        <footer class="footer">
-            Made in Vigo - Canarias - Valencia - Londres
-        </footer>
+<footer>
+    Made in Vigo - Canarias - Valencia - Londres
+</footer>
 
 
 
 
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="assets/js/main.js"></script>
-
+    <script src="assets/js/PokedexEngine.js"></script>
+   <!-- 
+    <audio autoplay loop hidden>  
+        <source src="/assets/Music-Pokemon.mp3" type="audio/mp3">
+    </audio>
+    -->
 </body>
 </html>
