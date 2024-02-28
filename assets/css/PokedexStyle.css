@@ -218,7 +218,6 @@ section h2{
 }
 .pokemonImage {
     display: flex;
-    margin-left: 50px;
 }
 
 .pokemonCardContainer {
