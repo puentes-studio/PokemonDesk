@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>Pokémon Search App</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon_io/favicon-16x16.png">
+    <link rel="icon" type="image/jpg" href="assets/img/favicon_io/favicon.ico"/>
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&family=Josefin+Slab:wght@300&family=Saira:wght@700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Archivo+Black&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/PokedexStyle.css">
@@ -20,15 +24,10 @@
 
     <!-- HEADER POKEMON -->
     <header class="header">
-        <!-- <a href="https://www.amazon.es/Nintendo-Pokemon-P%C3%BArpura/dp/B09TL39H42/ref=asc_df_B09TL39H42/?tag=googshopes-21&linkCode=df0&hvadid=529699126493&hvpos=&hvnetw=g&hvrand=16828045642403750520&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=1005480&hvtargid=pla-1640445426938&th=1"
-            target="_blank">
-            <img src="assets/img/logo_amazon.png" alt="Logo Amazon" id="amazon-logo">
-        </a> -->
+      
         <a href="index.html" target="_blank"><img id="pokemon-logo" src="assets/img/Pokedex_logo.png"
                 alt="Logo Pokedex"></a>
 
-        <!-- <a href="https://www.instagram.com/pokemon/?hl=es" target="_blank"><img src="assets/img/instagram-logo-png.png"
-                alt="Logo Instagram" id="instagram-logo"></a> -->
     </header>
 
 
@@ -47,7 +46,7 @@
             <!-- SEARCH -->
 
             <div id="search-container">
-                <input type="text" id="pokemon-name" placeholder="¿Qué Pokémon buscas?" class="searchbarstyle"
+                <input type="text" id="pokemon-name" placeholder="Looking for some Pokemon?" class="searchbarstyle"
                     onkeydown="hideErrorMsg()">
                 <button class="searchbuttonstyle" id="search-button" onclick="searchPokemon()">🔍</button>
                 <ul id="suggestions" class="dropdown-content" style="display: none;"></ul>
@@ -57,8 +56,7 @@
          <!--SPRITES AND POKEMON INFO-->
         <section>
             <div id="pokemon-info" class="carta-pokemon">
-                <span id="no-pokemon" class="error-busqueda"><strong>No se encontró ningún pokemon con ese
-                        nombre</strong></span>
+                <span id="no-pokemon" class="error-busqueda"><strong>No Pokemon with that name.</strong></span>
                 <div id="pokemon-img" class="pokemonCardContainer">
                     <h2 id="name"></h2>
                     <div class="pokemonImage">
@@ -76,15 +74,15 @@
                         </div>
                     </div>
                 </div>
-                <p class="stats"><strong>Tipo:</strong> <span id="type"></span></p>
-                <p class="stats"><strong>Peso:</strong> <span id="weight"></span></p>
-                <p class="stats"><strong>Altura:</strong> <span id="height"></span></p>
-                <p class="stats"><strong>PS:</strong> <span id="hp"></span></p>
-                <p class="stats"><strong>Ataque:</strong> <span id="attack"></span></p>
-                <p class="stats"><strong>Defensa:</strong> <span id="defense"></span></p>
-                <p class="stats"><strong>Ataque Especial:</strong> <span id="special-attack"></span></p>
-                <p class="stats"><strong>Defensa Especial:</strong> <span id="special-defense"></span></p>
-                <p class="stats"><strong>Velocidad:</strong> <span id="speed"></span></p>
+                <p class="stats"><strong>Type:</strong> <span id="type"></span></p>
+                <p class="stats"><strong>Weight:</strong> <span id="weight"></span></p>
+                <p class="stats"><strong>Height:</strong> <span id="height"></span></p>
+                <p class="stats"><strong>HP:</strong> <span id="hp"></span></p>
+                <p class="stats"><strong>Attack:</strong> <span id="attack"></span></p>
+                <p class="stats"><strong>Defense:</strong> <span id="defense"></span></p>
+                <p class="stats"><strong>Special Attack:</strong> <span id="special-attack"></span></p>
+                <p class="stats"><strong>Special Defense:</strong> <span id="special-defense"></span></p>
+                <p class="stats"><strong>Speed:</strong> <span id="speed"></span></p>
             </div>
         </section>
     </div>
