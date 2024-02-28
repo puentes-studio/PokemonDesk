@@ -160,7 +160,7 @@ function searchSelectedPokemon(selectedPokemon) {
 function searchPokemon() {
   const pokemonName = pokemonNameInput.value.toLowerCase();
   if (!isValidPokemonName(pokemonName)) {
-    return alert("Ingrese un nombre de Pokémon válido.");
+    return alert("Write a valid Pokemon");
   }
   // Fetching API
   fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`)
