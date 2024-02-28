@@ -1,4 +1,3 @@
-// VARIABLES
 const pokemonNameInput = document.getElementById("pokemon-name");
 const suggestionsList = document.getElementById("suggestions");
 const pokemonCardContainer = document.getElementById("pokemon-img");
@@ -19,7 +18,11 @@ const pokemonSpecialDefenseContent = document.getElementById("special-defense");
 const errorSpan = document.getElementById("no-pokemon");
 const statsTextElements = document.querySelectorAll('.carta-pokemon .stats');
 let allPokemon = [];
-// FUNCIONES
+
+
+
+
+
 function displayPokemonInfo(data) {
   pokemonNameContent.textContent = data.name;
   pokemonImgSrcFront.src = data.sprites.front_default;
@@ -35,11 +38,16 @@ function displayPokemonInfo(data) {
   pokemonSpeedContent.textContent = data.stats[5].base_stat;
   pokemonImgSrcFrontShiny.src = data.sprites.front_shiny;
   pokemonImgSrcBackShiny.src = data.sprites.back_shiny;
-  statsTextElements.forEach((element) => {  //ESTA FUNCION PERMITE OCULTAR LOS STATS HASTA QUE SE HAGA UNA BÚSQUEDA
+
+  statsTextElements.forEach((element) => {  
     element.style.display = 'block';
   });
+
+
   showCardContainer();
 }
+
+
 function removePokemonInfo() {
   pokemonNameContent.textContent = "";
   pokemonImgSrcFront.src = "";
@@ -53,107 +61,130 @@ function removePokemonInfo() {
   pokemonImgSrcFrontShiny.src = "";
   pokemonImgSrcBackShiny.src = "";
 }
+
 function showShiny() {
   pokemonImgSrcFrontShiny.style.opacity = 1;
 }
+
 function hideShiny() {
   pokemonImgSrcFrontShiny.style.opacity = 0;
 }
+
 function hideCardContainer() {
   pokemonCardContainer.style.opacity = 0;
 }
+
 function showCardContainer() {
   pokemonCardContainer.style.opacity = 1;
 }
+
 function showErrorMsg() {
   errorSpan.style.opacity = 1;
 }
+
 function hideErrorMsg() {
   errorSpan.style.opacity = 0;
 }
+
 function isValidPokemonName(pokemonName) {
   console.log({ validation: pokemonName.trim(), pokemonName });
   return pokemonName.trim() !== "";
 }
+
 function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
+
 function handleDataApi(data) {
   data.name = capitalizeFirstLetter(data.name);
   displayPokemonInfo(data);
   showCardContainer();
 }
+
 function handleErrorApi(error) {
   hideCardContainer();
   removePokemonInfo();
   hideStats();
   showErrorMsg();
-  errorSpan.textContent = "No se encontró el Pokémon. Intente con otro nombre.";
+  errorSpan.textContent = "Pokemon not found, please try again.";
 }
+
 function hideStats() {
   statsTextElements.forEach((element) => {
     element.style.display = 'none';
   });
 }
-// NUEVA FUNCIÓN QUE MUESTRA LAS DIFERENTES OPCIONES DE POKÉMON SI HAY COINCIDENCIAS EN EL NOMBRE Y EN TIEMPO REAL
+
+
+
+// Function to display dropdown search suggestions
 function displaySuggestionsDropdown(suggestions) {
   suggestionsList.innerHTML = "";
-  if (suggestions.length > 0) {
-    suggestionsList.style.display = "block";
-  } else {
-    suggestionsList.style.display = "none";
-    return;
-  }
+    if (suggestions.length > 0) {
+      suggestionsList.style.display = "block";
+    } else {
+      suggestionsList.style.display = "none";
+      return;
+    }
   suggestions.forEach(pokemon => {
     const listItem = document.createElement("li");
-    listItem.textContent = pokemon.name;
-    listItem.addEventListener("click", function () {
+      listItem.textContent = pokemon.name;
+      listItem.addEventListener("click", function () {
       pokemonNameInput.value = pokemon.name;
       suggestionsList.style.display = "none";
-      searchSelectedPokemon(pokemon.name); // Llama a la función searchSelectedPokemon
+      searchSelectedPokemon(pokemon.name); 
     });
     suggestionsList.appendChild(listItem);
   });
 }
+
 function searchPokemon() {
-  const pokemonName = pokemonNameInput.value.toLowerCase();
-  if (!isValidPokemonName(pokemonName)) {
-    return alert("Ingrese un nombre de Pokémon válido.");
+    const pokemonName = pokemonNameInput.value.toLowerCase();
+      if (!isValidPokemonName(pokemonName)) {
+      return alert("Write a valid Pokemon");
   }
-  fetchPokemonData(pokemonName); // Llama a la función fetchPokemonData
+  fetchPokemonData(pokemonName); 
 }
+
 function fetchPokemonData(pokemonName) {
   fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`)
     .then((response) => response.json())
     .then(handleDataApi)
     .catch(handleErrorApi);
 }
+
 function searchSelectedPokemon(selectedPokemon) {
-  fetchPokemonData(selectedPokemon); // Llama a la función fetchPokemonData
+  fetchPokemonData(selectedPokemon); 
 }
+
 function searchPokemon() {
   const pokemonName = pokemonNameInput.value.toLowerCase();
   if (!isValidPokemonName(pokemonName)) {
     return alert("Ingrese un nombre de Pokémon válido.");
   }
-  // LLAMADA API
+  // Fetching API
   fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`)
     .then((response) => response.json())
     .then(handleDataApi)
     .catch(handleErrorApi);
 }
-// EVENTOS
+
+
 pokemonNameInput.addEventListener("keydown", function (event) {
   if (event.key === "Enter") {
     searchPokemon();
   }
 });
-// EVENTOS QUE HACEN POSIBLE LA NUEVA FUNCIONALIDAD DEL BUSCADOR Y MUESTRA LAS SUGERENCIAS
+
+
+// Events related to the suggestions of pokemon starting with the same letter
 pokemonNameInput.addEventListener("keydown", function (event) {
   if (event.key === "Enter") {
     searchPokemon();
   }
 });
+
+
 window.addEventListener("load", function () {
   fetch(`https://pokeapi.co/api/v2/pokemon/?limit=1118`)
     .then(response => response.json())
@@ -162,6 +193,8 @@ window.addEventListener("load", function () {
     })
     .catch(error => console.error('Error fetching data:', error));
 });
+
+
 pokemonNameInput.addEventListener("input", function () {
   const searchTerm = pokemonNameInput.value.toLowerCase().trim();
   if (!searchTerm) {
@@ -171,18 +204,22 @@ pokemonNameInput.addEventListener("input", function () {
   const filteredPokemon = allPokemon.filter(pokemon => pokemon.name.includes(searchTerm));
   displaySuggestionsDropdown(filteredPokemon);
 });
+
+
 suggestionsList.addEventListener("mouseover", function (event) {
   if (event.target.tagName === "LI") {
     event.target.style.cursor = "pointer";
     event.target.title = "Seleccionar Pokémon";
   }
 });
+
+
 suggestionsList.addEventListener("click", function (event) {
   if (event.target.tagName === "LI") {
     const selectedPokemon = event.target.textContent;
     pokemonNameInput.value = selectedPokemon;
-    suggestionsList.style.display = "none"; // Oculta la lista de sugerencias
-    // Realizar la búsqueda del Pokémon seleccionado
+    suggestionsList.style.display = "none"; // hide the suggestion
+    // Realice the pokemon search
     searchPokemon();
   }
 });
